@@ -1,0 +1,11 @@
+<class>
+    <animations>
+        <animation
+                name="UP"
+                sprite="animations/explosion.png"
+                frameCols="8"
+                frameRows="4"
+                time="50">
+        </animation>
+    </animations>
+</class>

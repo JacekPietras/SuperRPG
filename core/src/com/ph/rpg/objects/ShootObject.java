@@ -33,6 +33,10 @@ public class ShootObject extends MovingObject {
 
         if(stateTime - startTime>50 || isIdle()) {
             shoots.remove(shoots.indexOf(this));
+            ExplosionObject explosion = new ExplosionObject(shoots);
+            explosion.setCoord(currentCoord);
+            explosion.currentCoord.add(facingLeft?-15:15,0);
+            shoots.add(explosion);
             return;
         }
         super.draw(spriteBatch, stateTime - startTime);

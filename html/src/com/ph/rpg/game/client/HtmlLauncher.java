@@ -6,6 +6,12 @@ import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 import com.ph.rpg.game.Game;
 
 public class HtmlLauncher extends GwtApplication {
+        // To compile:
+        // terminal -> cd SuperRPG
+        // ./gradlew html:superDEV
+        // or
+        // gradlew html:superDEV
+        // -> run http://localhost:8080/html/ on browser
 
         @Override
         public GwtApplicationConfiguration getConfig () {

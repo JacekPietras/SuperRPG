@@ -1,5 +1,6 @@
 package com.ph.rpg.game.desktop;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.ph.rpg.game.Game;
@@ -13,6 +14,8 @@ public class DesktopLauncher {
 		cfg.height = 600;
 		cfg.useGL30 = false;
 		cfg.resizable = false;
+		cfg.addIcon("icon_desktop.png", Files.FileType.Internal);
+		cfg.addIcon("icon-64.png", Files.FileType.Internal);
 		new LwjglApplication(new Game(), cfg);
 	}
 }

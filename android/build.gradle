@@ -1,5 +1,5 @@
 android {
-    buildToolsVersion "23.0.3"
+    buildToolsVersion "23.0.1"
     compileSdkVersion 23
     sourceSets {
         main {
@@ -15,7 +15,7 @@ android {
         instrumentTest.setRoot('tests')
     }
     defaultConfig {
-        applicationId "com.jock.rpg"
+        applicationId "com.ph.rpg.game"
         minSdkVersion 8
         targetSdkVersion 23
     }
@@ -68,7 +68,7 @@ task run(type: Exec) {
     }
 
     def adb = path + "/platform-tools/adb"
-    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.jock.rpg/com.jock.rpg.AndroidLauncher'
+    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.ph.rpg.game/com.ph.rpg.game.AndroidLauncher'
 }
 
 // sets up the Android Eclipse project, using the old Ant based build.

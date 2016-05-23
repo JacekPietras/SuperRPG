@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.XmlReader;
-import com.ph.rpg.managers.player.PlayerState;
+import com.ph.rpg.mechanics.player.MovingObject;
 
 /**
  * Created by Hamish on 2016-05-20.
@@ -18,7 +18,7 @@ public class PHAnimation {
     private Integer frameRows;
     private Float animationTime;
 
-    PlayerState type;
+//    MovingObject.State type;
 
     private Texture walkSheet;
     private TextureRegion[] walkFrames;
@@ -31,11 +31,11 @@ public class PHAnimation {
         sprite = xmlObject.get("sprite");
         animationTime = Float.parseFloat(xmlObject.get("time"))/100.0f;
 
-        if (name.equals("RUN")) {
-            type = PlayerState.Running;
-        } else if (name.equals("IDLE")) {
-            type = PlayerState.Idle;
-        }
+//        if (name.equals("RUN")) {
+//            type = MovingObject.State.Running;
+//        } else if (name.equals("IDLE")) {
+//            type = MovingObject.State.Idle;
+//        }
 
         walkSheet = new Texture(Gdx.files.internal(sprite));
         TextureRegion[][] tmp = TextureRegion.split(walkSheet, walkSheet.getWidth() / frameCols, walkSheet.getHeight() / frameRows);
@@ -81,9 +81,9 @@ public class PHAnimation {
         this.frameRows = frameRows;
     }
 
-    public PlayerState getType() {
-        return type;
-    }
+//    public MovingObject.State getType() {
+//        return type;
+//    }
 
     public Animation getAnimation() {
         return animation;

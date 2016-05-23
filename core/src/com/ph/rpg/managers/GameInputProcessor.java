@@ -1,13 +1,11 @@
 package com.ph.rpg.managers;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.ph.rpg.controllers.CameraController;
-import com.ph.rpg.game.Game;
-import com.ph.rpg.managers.player.PlayerManager;
+import com.ph.rpg.controllers.MageObject;
 
 /**
  * Created by Hamish on 2016-05-20.
@@ -34,8 +32,8 @@ public class GameInputProcessor extends InputAdapter {
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         Vector3 absolutePoint = convertTouchToAbsolute(screenX, screenY);
         MouseManager.setPoint(screenX,screenY);
-        if(PlayerManager.hasFocus()){
-            PlayerManager.moveToward(new Vector2(absolutePoint.x, absolutePoint.y));
+        if(MageObject.hasFocus()){
+            MageObject.mainObject.moveToward(new Vector2(absolutePoint.x, absolutePoint.y));
         }
         return true;
     }

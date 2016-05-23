@@ -4,8 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ph.rpg.game.Game;
-import com.ph.rpg.managers.player.PlayerManager;
-import com.ph.rpg.utils.PHAnimation;
 
 /**
  * Created by Hamish on 2016-05-21.

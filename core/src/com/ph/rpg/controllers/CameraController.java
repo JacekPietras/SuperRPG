@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.ph.rpg.game.Game;
+import com.ph.rpg.mechanics.player.MovingObject;
 
 /**
  * Created by Hamish on 2016-05-21.
@@ -26,12 +27,12 @@ public class CameraController {
         float newViewportHeight = cam.viewportHeight * cam.zoom;
         float newViewportWidth  = cam.viewportWidth  * cam.zoom;
 
-        if(newViewportHeight>BackgroundDrawer.getHeight()){
-            newViewportHeight = BackgroundDrawer.getHeight();
+        if(newViewportHeight> SceneDrawer.getHeight()){
+            newViewportHeight = SceneDrawer.getHeight();
             cam.zoom = newViewportHeight/cam.viewportHeight;
             newViewportWidth  = cam.viewportWidth  * cam.zoom;
-        } else if(newViewportWidth>BackgroundDrawer.getWidth()){
-            newViewportWidth=BackgroundDrawer.getWidth();
+        } else if(newViewportWidth> SceneDrawer.getWidth()){
+            newViewportWidth= SceneDrawer.getWidth();
             cam.zoom = newViewportWidth/cam.viewportWidth;
             newViewportHeight = cam.viewportHeight * cam.zoom;
         }
@@ -43,12 +44,12 @@ public class CameraController {
         float effectiveViewportWidth = viewportWidth * cam.zoom;
         float effectiveViewportHeight = viewportHeight * cam.zoom;
 
-        cam.position.x = MathUtils.clamp(camX, effectiveViewportWidth/2, BackgroundDrawer.getWidth() - effectiveViewportWidth/2);
-        cam.position.y = MathUtils.clamp(camY, effectiveViewportHeight/2, BackgroundDrawer.getHeight() - effectiveViewportHeight/2);
+        cam.position.x = MathUtils.clamp(camX, effectiveViewportWidth/2, SceneDrawer.getWidth() - effectiveViewportWidth/2);
+        cam.position.y = MathUtils.clamp(camY, effectiveViewportHeight/2, SceneDrawer.getHeight() - effectiveViewportHeight/2);
     }
 
     public static void update(){
-        Vector2 position = new Vector2(PlayerDrawer.getInstance().getPlayerX(), PlayerDrawer.getInstance().getPlayerY());
+        Vector2 position = new Vector2(MovingObject.mainObject.getPosition());
         setUpCameraPosition(position.x,position.y,cam.viewportWidth,cam.viewportHeight);
         cam.update();
     }

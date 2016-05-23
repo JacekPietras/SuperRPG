@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
 import com.ph.rpg.controllers.CameraController;
-import com.ph.rpg.managers.player.PlayerManager;
+import com.ph.rpg.mechanics.player.MovingObject;
 
 import java.io.IOException;
 import java.util.Vector;
@@ -49,11 +49,11 @@ public class SceneManager {
 
         System.out.println(previousScene + " " +currentScene);
 
-        PlayerManager.setPlayerCoord(getCurrentScene().getStartPoint(previousScene));
-        PlayerManager.changeSpeed(getCurrentScene().getZoom());
+        MovingObject.mainObject.setCoord(getCurrentScene().getStartPoint(previousScene));
+        MovingObject.mainObject.setSpeed(getCurrentScene().getZoom());
         CameraController.scroll(0);
-        PlayerManager.faceToward(getCurrentScene().getFacing(previousScene));
-        PlayerManager.stop();
+        MovingObject.mainObject.faceToward(getCurrentScene().getFacing(previousScene));
+        MovingObject.mainObject.stop();
     }
 
     public static PHGate checkGates(Color color) {

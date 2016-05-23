@@ -6,6 +6,7 @@ package com.ph.rpg.utils;
 public class ClassFileManager {
     public static final String MageXML = "animations/mage.xml";
     public static final String LevelUpXML = "animations/levelup.xml";
+    public static final String BloodXML = "animations/blood.xml";
     public static final String enemyXML = "objects/wolf.png";
     public static final String gemsXML = "objects/bag_of_gems.png";
 }

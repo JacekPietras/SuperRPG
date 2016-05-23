@@ -16,7 +16,7 @@ public class Game implements ApplicationListener {
     public static int WIDTH;
     public static int HEIGHT;
 
-    float stateTime = 0f;
+    public static float stateTime = 0f;
 
     SpriteBatch spriteBatch;
 

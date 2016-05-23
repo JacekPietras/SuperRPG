@@ -144,7 +144,7 @@ public class PHScene {
     public void drawObjects(SpriteBatch batch, float stateTime) {
         ArrayList<DrawableObject> drawList = new ArrayList<DrawableObject>();
         drawList.addAll(objects);
-        drawList.add(MageObject.mainObject);
+        drawList.addAll(MageObject.getDrawableObjects());
         Collections.sort(drawList);
         for (DrawableObject object : drawList) {
 

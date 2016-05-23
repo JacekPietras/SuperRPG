@@ -1,0 +1,8 @@
+<root>
+    <objects>
+        <object
+                id="bagOfGems1"
+                path="objects/bag_of_gems.png">
+        </object>
+    </objects>
+</root>

@@ -28,4 +28,7 @@ public class ExplosionObject extends AnimatedObject {
         }
         super.draw(spriteBatch, stateTime - startTime);
     }
+    public Vector2 getPosition() {
+        return new Vector2(currentCoord.x,currentCoord.y-30);
+    }
 }

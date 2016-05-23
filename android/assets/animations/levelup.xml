@@ -4,7 +4,7 @@
                 name="UP"
                 sprite="animations/levelup.png"
                 frameCols="8"
-                frameRows="7"
+                frameRows="8"
                 time="50">
         </animation>
     </animations>

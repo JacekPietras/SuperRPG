@@ -1,8 +1,8 @@
 package com.ph.rpg.objects;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.ph.rpg.utils.ClassFileManager;
-import com.ph.rpg.objects.MovingObject;
 
 /**
  * Created by Hamish on 2016-05-21.
@@ -10,6 +10,7 @@ import com.ph.rpg.objects.MovingObject;
 public class MageObject extends MovingObject {
 
     private static boolean hasFocus = true;
+    private static AnimatedObject levelUp = new LevelUpObject();
 
     public static boolean hasFocus() {
         return hasFocus;
@@ -25,6 +26,8 @@ public class MageObject extends MovingObject {
         } else if (currentCoord.x < getDestination().x && facingLeft) {
             facingLeft = false;
         }
+        levelUp.draw(spriteBatch,stateTime);
+
         super.draw(spriteBatch, stateTime);
     }
 

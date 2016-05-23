@@ -1,8 +1,0 @@
-<root>
-    <enemies>
-        <enemy
-                id="wolf1"
-                path="enemies/wolf1/idle.png">
-        </enemy>
-    </enemies>
-</root>

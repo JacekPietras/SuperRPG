@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.XmlReader;
-import com.ph.rpg.mechanics.player.MovingObject;
 
 /**
  * Created by Hamish on 2016-05-20.

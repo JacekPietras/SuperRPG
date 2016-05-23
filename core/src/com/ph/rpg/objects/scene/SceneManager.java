@@ -1,11 +1,11 @@
-package com.ph.rpg.managers.scene;
+package com.ph.rpg.objects.scene;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
 import com.ph.rpg.controllers.CameraController;
-import com.ph.rpg.mechanics.player.MovingObject;
+import com.ph.rpg.objects.MovingObject;
 
 import java.io.IOException;
 import java.util.Vector;
@@ -56,7 +56,7 @@ public class SceneManager {
         MovingObject.mainObject.stop();
     }
 
-    public static PHGate checkGates(Color color) {
+    public static com.ph.rpg.objects.scene.PHGate checkGates(Color color) {
         return getCurrentScene().checkGates(color);
     }
 }

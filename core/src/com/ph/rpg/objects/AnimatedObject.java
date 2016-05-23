@@ -1,11 +1,11 @@
-package com.ph.rpg.mechanics.player;
+package com.ph.rpg.objects;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
-import com.ph.rpg.managers.scene.SceneManager;
+import com.ph.rpg.objects.scene.SceneManager;
 import com.ph.rpg.utils.PHAnimation;
 
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.Vector;
 /**
  * Created by Hamish on 2016-05-20.
  */
-public class AnimatedObject extends DrawableObject {
+public class AnimatedObject extends com.ph.rpg.objects.DrawableObject {
 
     Vector<PHAnimation> animations = new Vector();
     protected int currentAnimation = 0;

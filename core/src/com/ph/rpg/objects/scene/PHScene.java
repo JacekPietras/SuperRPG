@@ -1,4 +1,4 @@
-package com.ph.rpg.managers.scene;
+package com.ph.rpg.objects.scene;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -7,10 +7,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
-import com.ph.rpg.controllers.MageObject;
-import com.ph.rpg.mechanics.player.DrawableObject;
-import com.ph.rpg.mechanics.player.EnemyObject;
-import com.ph.rpg.mechanics.player.GemObject;
+import com.ph.rpg.objects.MageObject;
+import com.ph.rpg.objects.DrawableObject;
+import com.ph.rpg.objects.EnemyObject;
+import com.ph.rpg.objects.GemObject;
 
 import java.util.ArrayList;
 import java.util.Collections;

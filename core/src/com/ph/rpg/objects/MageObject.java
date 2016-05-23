@@ -1,8 +1,8 @@
-package com.ph.rpg.controllers;
+package com.ph.rpg.objects;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.ph.rpg.mechanics.player.ClassFileManager;
-import com.ph.rpg.mechanics.player.MovingObject;
+import com.ph.rpg.utils.ClassFileManager;
+import com.ph.rpg.objects.MovingObject;
 
 /**
  * Created by Hamish on 2016-05-21.

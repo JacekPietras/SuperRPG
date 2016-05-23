@@ -5,7 +5,7 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.ph.rpg.controllers.CameraController;
-import com.ph.rpg.controllers.MageObject;
+import com.ph.rpg.objects.MageObject;
 
 /**
  * Created by Hamish on 2016-05-20.

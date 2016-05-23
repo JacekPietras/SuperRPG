@@ -1,4 +1,4 @@
-package com.ph.rpg.managers.scene;
+package com.ph.rpg.objects.scene;
 
 import com.badlogic.gdx.graphics.Color;
 

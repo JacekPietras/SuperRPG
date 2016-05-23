@@ -1,15 +1,10 @@
-package com.ph.rpg.mechanics.player;
+package com.ph.rpg.objects;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
-import com.ph.rpg.utils.PHAnimation;
-
-import java.io.IOException;
-import java.util.Vector;
 
 /**
  * Created by Hamish on 2016-05-20.

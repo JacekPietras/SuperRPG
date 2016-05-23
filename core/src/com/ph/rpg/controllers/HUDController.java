@@ -8,17 +8,17 @@ import com.ph.rpg.game.Game;
 /**
  * Created by Hamish on 2016-05-21.
  */
-public class HUDDrawer {
+public class HUDController {
 
-    private static HUDDrawer instance;
+    private static HUDController instance;
 
     private SpriteBatch HUDBatch;
 
     private Texture playerInfo, experienceBar;
 
-    public static HUDDrawer getInstance() {
+    public static HUDController getInstance() {
         if(instance==null){
-            instance = new HUDDrawer();
+            instance = new HUDController();
             instance.init();
         }
         return instance;
@@ -31,7 +31,7 @@ public class HUDDrawer {
     }
 
     public static void render(){
-        HUDDrawer.getInstance().draw();
+        HUDController.getInstance().draw();
     }
 
     private void draw() {

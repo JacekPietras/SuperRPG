@@ -1,11 +1,10 @@
-package com.ph.rpg.mechanics.player;
+package com.ph.rpg.objects;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.math.Vector2;
-import com.ph.rpg.controllers.SceneDrawer;
-import com.ph.rpg.managers.scene.PHGate;
-import com.ph.rpg.managers.scene.SceneManager;
+import com.ph.rpg.objects.scene.PHGate;
+import com.ph.rpg.objects.scene.SceneManager;
 
 /**
  * Created by Jock on 23.05.2016.
@@ -98,10 +97,10 @@ public class MovingObject extends AnimatedObject {
 
 
                 if (this == mainObject) {
-                    if (!SceneDrawer.getInstance().getMask().getTextureData().isPrepared())
-                        SceneDrawer.getInstance().getMask().getTextureData().prepare();
+                    if (!SceneManager.getCurrentScene().getMask().getTextureData().isPrepared())
+                        SceneManager.getCurrentScene().getMask().getTextureData().prepare();
 
-                    Pixmap mask = SceneDrawer.getInstance().getMask().getTextureData().consumePixmap();
+                    Pixmap mask = SceneManager.getCurrentScene().getMask().getTextureData().consumePixmap();
                     Color color = new Color(mask.getPixel((int) nextPosition.x, (int) (mask.getHeight() - nextPosition.y)));
                     System.out.println(color.toString() + " " + (int) nextPosition.x + " " + (int) (mask.getHeight() - nextPosition.y));
                     if (color.equals(Color.WHITE)) {

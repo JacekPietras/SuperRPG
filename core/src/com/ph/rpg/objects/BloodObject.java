@@ -20,8 +20,7 @@ public class BloodObject extends AnimatedObject {
     public void draw(SpriteBatch spriteBatch, float stateTime) {
         if (active) {
             super.draw(spriteBatch, stateTime- startTime);
-            System.out.println(stateTime+" "+8*8*8/1000.);
-            if(stateTime-startTime>8*8*8/1000.){
+            if(stateTime-startTime>6*8*8/1000.){
                 active = false;
             }
         }

@@ -1,0 +1,18 @@
+<class>
+    <animations>
+        <animation
+                name="SHOOT"
+                sprite="animations/shoot.png"
+                frameCols="8"
+                frameRows="8"
+                time="50">
+        </animation>
+        <animation
+                name="SHOOT"
+                sprite="animations/shoot.png"
+                frameCols="8"
+                frameRows="8"
+                time="50">
+        </animation>
+    </animations>
+</class>

@@ -55,4 +55,8 @@ public class MageObject extends MovingObject {
     public void levelUp(){
         levelUp.activate();
     }
+
+    public void shoot(Vector2 destination){
+        ShootObject.shoot(objects, destination);
+    }
 }

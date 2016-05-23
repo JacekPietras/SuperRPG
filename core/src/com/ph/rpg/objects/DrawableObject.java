@@ -29,8 +29,12 @@ public class DrawableObject implements Comparable<DrawableObject> {
         batch.draw(texture, currentCoord.x - texture.getWidth() / 2, currentCoord.y);
     }
 
+    public Vector2 getPosition() {
+        return currentCoord;
+    }
+
     @Override
     public int compareTo(DrawableObject o) {
-            return (int)(o.currentCoord.y-currentCoord.y);
+            return (int)(o.getPosition().y-getPosition().y);
     }
 }

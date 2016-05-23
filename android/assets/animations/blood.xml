@@ -1,0 +1,11 @@
+<class>
+    <animations>
+        <animation
+                name="BLOOD"
+                sprite="animations/blood.png"
+                frameCols="4"
+                frameRows="3"
+                time="50">
+        </animation>
+    </animations>
+</class>

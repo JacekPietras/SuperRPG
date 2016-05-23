@@ -11,13 +11,13 @@ import com.ph.rpg.objects.scene.SceneManager;
  */
 public class MovingObject extends AnimatedObject {
     private static final int BASIC_SPEED = 3;
-    private int speed = BASIC_SPEED;
-    private Vector2 destCoord = new Vector2();
+    protected int speed = BASIC_SPEED;
+    protected Vector2 destCoord = new Vector2();
 
-    public static MovingObject mainObject;
+    public static MageObject mainObject;
 
     public void setAsMainObject() {
-        mainObject = this;
+        mainObject = (MageObject) this;
     }
 
     public int getState() {
@@ -40,9 +40,6 @@ public class MovingObject extends AnimatedObject {
         currentAnimation = 1;
     }
 
-    public Vector2 getPosition() {
-        return currentCoord;
-    }
 
     @Override
     public void setCoord(Vector2 newCoord) {

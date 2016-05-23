@@ -34,6 +34,7 @@ public class GameInputProcessor extends InputAdapter {
         MouseManager.setPoint(screenX,screenY);
         if(MageObject.hasFocus()){
             MageObject.mainObject.moveToward(new Vector2(absolutePoint.x, absolutePoint.y));
+            MageObject.mainObject.shoot(new Vector2(absolutePoint.x, absolutePoint.y));
         }
         return true;
     }

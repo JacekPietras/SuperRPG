@@ -52,10 +52,10 @@ public class PHScene {
     }
 
     private void getStartingPoints(XmlReader.Element _child) {
-        XmlReader.Element child = _child.getChildByName("startPoints");
-        if (child == null)
-            return;
-        Array<XmlReader.Element> list = child.getChildrenByName("startPoint");
+//        XmlReader.Element child = _child.getChildByName("startPoints");
+//        if (child == null)
+//            return;
+        Array<XmlReader.Element> list = _child.getChildrenByName("startPoint");
         for (XmlReader.Element enemy : list) {
             Integer from = Integer.parseInt(enemy.get("from"));
             Vector2 coord = new Vector2(Integer.parseInt(enemy.get("x")), Integer.parseInt(enemy.get("y")));
@@ -65,10 +65,10 @@ public class PHScene {
     }
 
     private void getGates(XmlReader.Element _child) {
-        XmlReader.Element child = _child.getChildByName("gates");
-        if (child == null)
-            return;
-        Array<XmlReader.Element> list = child.getChildrenByName("gate");
+//        XmlReader.Element child = _child.getChildByName("gates");
+//        if (child == null)
+//            return;
+        Array<XmlReader.Element> list = _child.getChildrenByName("gate");
         for (XmlReader.Element enemy : list) {
             Integer id = Integer.parseInt(enemy.get("id"));
             Color color = Color.valueOf(enemy.get("color"));
@@ -166,6 +166,7 @@ public class PHScene {
         drawList.add(MageObject.mainObject);
         Collections.sort(drawList);
         for (DrawableObject object : drawList) {
+
             object.draw(batch, stateTime);
         }
     }

@@ -39,7 +39,6 @@ public class HUDController {
         HUDBatch.draw(playerInfo, 20, Game.HEIGHT - playerInfo.getHeight() - 20);
         HUDBatch.draw(experienceBar,Game.WIDTH/2 - experienceBar.getWidth()/2, 10);
 
-
         HUDBatch.end();
     }
 }

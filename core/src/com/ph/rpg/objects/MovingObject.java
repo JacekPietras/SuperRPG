@@ -102,7 +102,7 @@ public class MovingObject extends AnimatedObject {
 
                     Pixmap mask = SceneManager.getCurrentScene().getMask().getTextureData().consumePixmap();
                     Color color = new Color(mask.getPixel((int) nextPosition.x, (int) (mask.getHeight() - nextPosition.y)));
-                    System.out.println(color.toString() + " " + (int) nextPosition.x + " " + (int) (mask.getHeight() - nextPosition.y));
+//                    System.out.println(color.toString() + " " + (int) nextPosition.x + " " + (int) (mask.getHeight() - nextPosition.y));
                     if (color.equals(Color.WHITE)) {
                         nextPosition.set(currentCoord);
                         destCoord.set(currentCoord);

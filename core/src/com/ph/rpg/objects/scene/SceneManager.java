@@ -15,7 +15,7 @@ import java.util.Vector;
  */
 public class SceneManager {
 
-    private static final String scenesXMLPath = "scenes.xml";
+    private static final String scenesXMLPath = "scenes/scenes.xml";
     public static Vector<PHScene> scenes = new Vector();
 
     public static int currentScene = -1;
@@ -47,7 +47,7 @@ public class SceneManager {
         previousScene = currentScene;
         currentScene = i;
 
-        System.out.println(previousScene + " " +currentScene);
+        System.out.println("change scene from "+previousScene + " to " +currentScene);
 
         MovingObject.mainObject.setCoord(getCurrentScene().getStartPoint(previousScene));
         MovingObject.mainObject.setSpeed(getCurrentScene().getZoom());

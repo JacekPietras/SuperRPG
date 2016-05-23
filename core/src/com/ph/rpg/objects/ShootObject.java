@@ -19,6 +19,7 @@ public class ShootObject extends MovingObject {
         setCoord(new Vector2(MovingObject.mainObject.getPosition()));
         currentCoord.add(0, 45);
         startTime = Game.stateTime;
+        destination.add(0,-30);
         moveToward(destination);
         speed = 5;
 

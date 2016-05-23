@@ -2,6 +2,7 @@ package com.ph.rpg.objects;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.ph.rpg.objects.scene.PHGate;
 import com.ph.rpg.objects.scene.SceneManager;
@@ -69,6 +70,21 @@ public class MovingObject extends AnimatedObject {
         destCoord = new Vector2(dest);
         setRunning();
     }
+
+    @Override
+    public void draw(SpriteBatch spriteBatch, float stateTime) {
+        currentCoord = getNextPosition();
+        if (currentCoord.x > getDestination().x && !facingLeft) {
+            facingLeft = true;
+        } else if (currentCoord.x < getDestination().x && facingLeft) {
+            facingLeft = false;
+        }
+//        levelUp.draw(spriteBatch,stateTime);
+//        blood.draw(spriteBatch,stateTime);
+
+        super.draw(spriteBatch, stateTime);
+    }
+
 
     public void faceToward(Boolean facing) {
         setFacingLeft(!facing);

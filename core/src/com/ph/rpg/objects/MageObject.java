@@ -25,19 +25,6 @@ public class MageObject extends MovingObject {
     }
 
 
-    @Override
-    public void draw(SpriteBatch spriteBatch, float stateTime) {
-        currentCoord = getNextPosition();
-        if (currentCoord.x > getDestination().x && !facingLeft) {
-            facingLeft = true;
-        } else if (currentCoord.x < getDestination().x && facingLeft) {
-            facingLeft = false;
-        }
-//        levelUp.draw(spriteBatch,stateTime);
-//        blood.draw(spriteBatch,stateTime);
-
-        super.draw(spriteBatch, stateTime);
-    }
 
     public MageObject() {
         super(ClassFileManager.MageXML);

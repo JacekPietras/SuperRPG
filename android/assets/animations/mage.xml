@@ -1,0 +1,18 @@
+<class>
+    <animations>
+        <animation
+                name="RUN"
+                sprite="animations/mage_run.png"
+                frameCols="8"
+                frameRows="1"
+                time="100">
+        </animation>
+        <animation
+                name="IDLE"
+                sprite="animations/mage_idle.png"
+                frameCols="7"
+                frameRows="1"
+                time="200">
+        </animation>
+    </animations>
+</class>

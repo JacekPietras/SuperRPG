@@ -52,9 +52,6 @@ public class PHScene {
     }
 
     private void getStartingPoints(XmlReader.Element _child) {
-//        XmlReader.Element child = _child.getChildByName("startPoints");
-//        if (child == null)
-//            return;
         Array<XmlReader.Element> list = _child.getChildrenByName("startPoint");
         for (XmlReader.Element enemy : list) {
             Integer from = Integer.parseInt(enemy.get("from"));
@@ -65,9 +62,6 @@ public class PHScene {
     }
 
     private void getGates(XmlReader.Element _child) {
-//        XmlReader.Element child = _child.getChildByName("gates");
-//        if (child == null)
-//            return;
         Array<XmlReader.Element> list = _child.getChildrenByName("gate");
         for (XmlReader.Element enemy : list) {
             Integer id = Integer.parseInt(enemy.get("id"));
@@ -77,14 +71,8 @@ public class PHScene {
     }
 
     private void getEnemies(XmlReader.Element _child) {
-//        XmlReader.Element child = _child.getChildByName("enemies");
-//        if(child==null)
-//            return;
         Array<XmlReader.Element> list = _child.getChildrenByName("enemy");
         for (XmlReader.Element enemy : list) {
-//            String id = enemy.get("id");
-//            Vector2 coord = new Vector2(Integer.parseInt(enemy.get("x")),Integer.parseInt(enemy.get("y")));
-//            coord.add(EnemyProvider.get(id).getTexture().getWidth()/2,0);
             EnemyObject thing = new EnemyObject();
             thing.setCoord(new Vector2(Integer.parseInt(enemy.get("x")), Integer.parseInt(enemy.get("y"))));
             objects.add(thing);
@@ -92,15 +80,8 @@ public class PHScene {
     }
 
     private void getObjects(XmlReader.Element _child) {
-//        XmlReader.Element child = _child.getChildByName("objects");
-//        if(child==null)
-//            return;
         Array<XmlReader.Element> list = _child.getChildrenByName("object");
         for (XmlReader.Element object : list) {
-//            String id = object.get("id");
-//            Vector2 coord = new Vector2(Integer.parseInt(object.get("x")),Integer.parseInt(object.get("y")));
-//            coord.add(ObjectProvider.get(id).getTexture().getWidth()/2,0);
-//            objects.put(coord,ObjectProvider.get(id));
             GemObject thing = new GemObject();
             thing.setCoord(new Vector2(Integer.parseInt(object.get("x")), Integer.parseInt(object.get("y"))));
             objects.add(thing);
@@ -144,7 +125,7 @@ public class PHScene {
     }
 
     public Vector2 getStartPoint(Integer from) {
-        return new Vector2(getStartX(from),/*scene.getHeight()-*/getStartY(from));
+        return new Vector2(getStartX(from), getStartY(from));
     }
 
     public Float getZoom() {

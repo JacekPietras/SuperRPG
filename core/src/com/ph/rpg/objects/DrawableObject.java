@@ -39,6 +39,6 @@ public class DrawableObject implements Comparable<DrawableObject> {
 
     @Override
     public int compareTo(DrawableObject o) {
-            return (int)(currentCoord.y-o.currentCoord.y);
+            return (int)(o.currentCoord.y-currentCoord.y);
     }
 }

@@ -43,7 +43,7 @@ public class ShootObject extends MovingObject {
         super.draw(spriteBatch, stateTime - startTime);
     }
     public Vector2 getPosition() {
-        return new Vector2(currentCoord.x,currentCoord.y-30);
+        return new Vector2(currentCoord.x,currentCoord.y-40);
     }
 
     public static void shoot(ArrayList<DrawableObject> shoots, Vector2 destination){

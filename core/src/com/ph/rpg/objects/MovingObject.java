@@ -4,8 +4,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import com.ph.rpg.objects.scene.PHGate;
-import com.ph.rpg.objects.scene.SceneManager;
+import com.ph.rpg.scene.PHGate;
+import com.ph.rpg.scene.SceneManager;
 
 /**
  * Created by Jock on 23.05.2016.

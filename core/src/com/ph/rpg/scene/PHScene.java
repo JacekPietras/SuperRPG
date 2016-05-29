@@ -1,4 +1,4 @@
-package com.ph.rpg.objects.scene;
+package com.ph.rpg.scene;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
+import com.ph.rpg.objects.ExplosionObject;
 import com.ph.rpg.objects.MageObject;
 import com.ph.rpg.objects.DrawableObject;
 import com.ph.rpg.objects.EnemyObject;
@@ -29,6 +30,8 @@ public class PHScene {
     private String pathMask;
     private Float zoom;
 
+    private Vector2 lastClick;
+
     Texture scene, mask;
 
     ArrayList<DrawableObject> objects = new ArrayList<DrawableObject>();
@@ -49,6 +52,14 @@ public class PHScene {
         getEnemies(child);
         getGates(child);
         getStartingPoints(child);
+    }
+
+    public void click(Vector2 clickPlace) {
+        lastClick = clickPlace;
+    }
+
+    public void click(float x, float y) {
+        lastClick = new Vector2(x, y);
     }
 
     private void getStartingPoints(XmlReader.Element _child) {
@@ -147,8 +158,69 @@ public class PHScene {
         drawList.addAll(MageObject.getDrawableObjects());
         Collections.sort(drawList);
         for (DrawableObject object : drawList) {
-
             object.draw(batch, stateTime);
         }
+    }
+
+    public void checkCollisions() {
+        ArrayList<DrawableObject> drawList = new ArrayList<DrawableObject>();
+        drawList.addAll(objects);
+        drawList.addAll(MageObject.getDrawableObjects());
+        for (int i = 0; i < drawList.size(); i++) {
+            DrawableObject first = drawList.get(i);
+            if (first.width == 0 || first.height == 0)
+                continue;
+
+            if (lastClick != null && first.isColliding(lastClick)) {
+                System.out.print("collision\n");
+                if (first instanceof EnemyObject) {
+                    MageObject.mainObject.shoot(new Vector2(lastClick.x, lastClick.y));
+                    lastClick = null;
+                }
+
+            }
+
+            for (int j = i; j < drawList.size(); j++) {
+                DrawableObject second = drawList.get(j);
+                if (second.width == 0 || second.height == 0 || i == j)
+                    continue;
+
+                //types of collisions
+                if (first.isColliding(second)) {
+                    if (first instanceof ExplosionObject && second instanceof EnemyObject) {
+                        ((EnemyObject) second).hit();
+                        MageObject.mainObject.levelUp();
+                        first.width = first.height = 0;
+                    }
+                    if (first instanceof EnemyObject && second instanceof ExplosionObject) {
+                        ((EnemyObject) first).hit();
+                        MageObject.mainObject.levelUp();
+                        second.width = second.height = 0;
+                    }
+
+                    if (first instanceof MageObject && second instanceof EnemyObject) {
+                        ((MageObject) first).hit();
+                    }
+                    if (first instanceof EnemyObject && second instanceof MageObject) {
+                        ((MageObject) second).hit();
+                    }
+
+                    if (first instanceof MageObject && second instanceof GemObject) {
+                        ((GemObject) second).collected();
+                        objects.remove(second);
+                    }
+                    if (first instanceof GemObject && second instanceof MageObject) {
+                        ((GemObject) first).collected();
+                        objects.remove(first);
+                    }
+
+                }
+            }
+        }
+
+        if (lastClick != null && MageObject.hasFocus()) {
+            MageObject.mainObject.moveToward(new Vector2(lastClick.x, lastClick.y));
+        }
+        lastClick = null;
     }
 }

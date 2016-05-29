@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.ph.rpg.controllers.CameraController;
 import com.ph.rpg.objects.MageObject;
+import com.ph.rpg.scene.SceneManager;
 
 /**
  * Created by Hamish on 2016-05-20.
@@ -32,10 +33,8 @@ public class GameInputProcessor extends InputAdapter {
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         Vector3 absolutePoint = convertTouchToAbsolute(screenX, screenY);
         MouseManager.setPoint(screenX,screenY);
-        if(MageObject.hasFocus()){
-            MageObject.mainObject.moveToward(new Vector2(absolutePoint.x, absolutePoint.y));
-            MageObject.mainObject.shoot(new Vector2(absolutePoint.x, absolutePoint.y));
-        }
+
+        SceneManager.getCurrentScene().click(absolutePoint.x,absolutePoint.y);
         return true;
     }
 

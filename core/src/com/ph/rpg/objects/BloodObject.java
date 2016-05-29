@@ -27,6 +27,7 @@ public class BloodObject extends AnimatedObject {
     }
 
     public void activate(){
+        if(startTime+1>Game.stateTime) return;
         startTime = Game.stateTime;
         active = true;
         setCoord(new Vector2(MovingObject.mainObject.getPosition()));

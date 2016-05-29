@@ -18,6 +18,9 @@ public class ExplosionObject extends AnimatedObject {
         super(ClassFileManager.ExplosionXML);
         startTime = Game.stateTime;
         this.shoots = shoots;
+
+        width = 100;
+        height = 100;
     }
 
     @Override

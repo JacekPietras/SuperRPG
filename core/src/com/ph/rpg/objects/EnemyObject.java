@@ -8,5 +8,11 @@ import com.ph.rpg.utils.ClassFileManager;
 public class EnemyObject extends DrawableObject {
     public EnemyObject() {
         super(ClassFileManager.enemyXML);
+        width = 100;
+        height = 90;
+    }
+
+    public void hit(){
+        System.out.print("DOSTALEM!\n");
     }
 }

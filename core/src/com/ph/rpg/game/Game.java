@@ -9,7 +9,7 @@ import com.ph.rpg.controllers.DrawController;
 import com.ph.rpg.objects.MageObject;
 import com.ph.rpg.managers.GameInputProcessor;
 import com.ph.rpg.managers.GameKeys;
-import com.ph.rpg.objects.scene.SceneManager;
+import com.ph.rpg.scene.SceneManager;
 
 public class Game implements ApplicationListener {
 

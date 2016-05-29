@@ -2,6 +2,7 @@ package com.ph.rpg.objects;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.ph.rpg.game.Game;
 import com.ph.rpg.utils.ClassFileManager;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
  */
 public class MageObject extends MovingObject {
 
+    private static float lastShotTime = 0;
     private static boolean hasFocus = true;
     private static LevelUpObject levelUp = new LevelUpObject();
     private static BloodObject blood = new BloodObject();
@@ -33,6 +35,8 @@ public class MageObject extends MovingObject {
         objects.add(blood);
         objects.add(this);
         setAsMainObject();
+        width = 40;
+        height = 50;
     }
 
     public void hit(){
@@ -44,6 +48,8 @@ public class MageObject extends MovingObject {
     }
 
     public void shoot(Vector2 destination){
+        if(lastShotTime+1> Game.stateTime) return;
+        lastShotTime = Game.stateTime;
         ShootObject.shoot(objects, destination);
     }
 }

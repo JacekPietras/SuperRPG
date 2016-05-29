@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.ph.rpg.game.Game;
 import com.ph.rpg.objects.MovingObject;
-import com.ph.rpg.objects.scene.SceneManager;
+import com.ph.rpg.scene.SceneManager;
 
 /**
  * Created by Hamish on 2016-05-21.

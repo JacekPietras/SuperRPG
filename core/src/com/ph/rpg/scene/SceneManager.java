@@ -1,4 +1,4 @@
-package com.ph.rpg.objects.scene;
+package com.ph.rpg.scene;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -56,7 +56,7 @@ public class SceneManager {
         MovingObject.mainObject.stop();
     }
 
-    public static com.ph.rpg.objects.scene.PHGate checkGates(Color color) {
+    public static PHGate checkGates(Color color) {
         return getCurrentScene().checkGates(color);
     }
 }

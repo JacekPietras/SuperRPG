@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
-import com.ph.rpg.objects.scene.SceneManager;
+import com.ph.rpg.scene.SceneManager;
 import com.ph.rpg.utils.PHAnimation;
 
 import java.io.IOException;

@@ -34,7 +34,7 @@ public class ShootObject extends MovingObject {
         currentCoord = getNextPosition();
 //        currentCoord.add(facingLeft?-4:4, 0);
 
-        if(stateTime - startTime>50 || isIdle()) {
+        if(stateTime - startTime>5 || isIdle()) {
             shoots.remove(shoots.indexOf(this));
             ExplosionObject explosion = new ExplosionObject(shoots, damage);
             explosion.setCoord(currentCoord);

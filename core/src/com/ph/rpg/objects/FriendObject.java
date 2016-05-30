@@ -2,7 +2,10 @@ package com.ph.rpg.objects;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.XmlReader;
 import com.ph.rpg.game.Game;
+import com.ph.rpg.scene.SceneManager;
 import com.ph.rpg.utils.ClassFileManager;
 
 import java.util.ArrayList;
@@ -11,16 +14,59 @@ import java.util.ArrayList;
  * Created by Jock on 23.05.2016.
  */
 public class FriendObject extends MovingObject {
-    public FriendObject() {
+
+    ArrayList<Statement> statementList;
+    private float endDiscusionTime = 0;
+    private boolean endDiscusion = false;
+
+    public FriendObject(XmlReader.Element friend) {
         super(ClassFileManager.friendXML);
         speed = 4;
         width = 100;
         height = 150;
         setCoord(new Vector2(300, -20));
+        Array<XmlReader.Element> list = friend.getChildrenByName("statement");
+        statementList = new ArrayList<Statement>();
+        for (XmlReader.Element statement : list) {
+            statementList.add(new Statement(statement.getText(), Integer.parseInt(statement.get("guy"))));
+        }
+
+//        for (Statement statement : statementList) {
+//            System.out.printf(statement.statement + "\n");
+//        }
     }
 
 
     public void say() {
-        System.out.printf("Hejo\n");
+        if (!statementList.isEmpty()) {
+            if (statementList.get(0).guy == 0)
+                System.out.printf("Oko : ");
+            else
+                System.out.printf("Mag : ");
+            System.out.printf(statementList.get(0).statement + "\n");
+            statementList.remove(0);
+        } else {
+            endDiscusionTime = Game.stateTime;
+            endDiscusion = true;
+            moveToward(new Vector2(Game.WIDTH + 100, 180));
+        }
+    }
+
+    @Override
+    public void draw(SpriteBatch spriteBatch, float stateTime) {
+        super.draw(spriteBatch, stateTime);
+        if (endDiscusion && (stateTime - endDiscusionTime > 5 || isIdle())) {
+            SceneManager.getCurrentScene().removeMeFromScene(this);
+        }
+    }
+
+    private class Statement {
+        private final String statement;
+        private final int guy;
+
+        Statement(String statement, int guy) {
+            this.statement = statement;
+            this.guy = guy;
+        }
     }
 }

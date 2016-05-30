@@ -7,10 +7,10 @@ import com.ph.rpg.scene.SceneManager;
  * Created by Hamish on 2016-05-21.
  */
 public class DrawController {
-    public static void render(SpriteBatch spriteBatch, float stateTime) {
+    public static void render(SpriteBatch spriteBatch) {
         spriteBatch.begin();
         spriteBatch.draw(SceneManager.getCurrentScene().getScene(), 0, 0);
-        SceneManager.getCurrentScene().drawObjects(spriteBatch, stateTime);
+        SceneManager.getCurrentScene().drawObjects(spriteBatch);
         SceneManager.getCurrentScene().checkCollisions();
         spriteBatch.end();
         HUDController.render();

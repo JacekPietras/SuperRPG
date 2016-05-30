@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
+import com.ph.rpg.game.Game;
 import com.ph.rpg.objects.CoinObject;
 import com.ph.rpg.objects.ExplosionObject;
 import com.ph.rpg.objects.FriendObject;
@@ -87,7 +88,7 @@ public class PHScene {
     private void getFriends(XmlReader.Element _child) {
         Array<XmlReader.Element> list = _child.getChildrenByName("friend");
         for (XmlReader.Element friend : list) {
-            FriendObject thing = new FriendObject();
+            FriendObject thing = new FriendObject(friend);
             thing.moveToward(new Vector2(Integer.parseInt(friend.get("x")), Integer.parseInt(friend.get("y"))));
             objects.add(thing);
         }
@@ -96,7 +97,7 @@ public class PHScene {
     private void getEnemies(XmlReader.Element _child) {
         Array<XmlReader.Element> list = _child.getChildrenByName("enemy");
         for (XmlReader.Element enemy : list) {
-            EnemyObject thing = new EnemyObject(objects);
+            EnemyObject thing = new EnemyObject();
             thing.setCoord(new Vector2(Integer.parseInt(enemy.get("x")), Integer.parseInt(enemy.get("y"))));
             objects.add(thing);
         }
@@ -164,14 +165,21 @@ public class PHScene {
         return null;
     }
 
-    public void drawObjects(SpriteBatch batch, float stateTime) {
+    public void drawObjects(SpriteBatch batch) {
         ArrayList<DrawableObject> drawList = new ArrayList<DrawableObject>();
         drawList.addAll(objects);
         drawList.addAll(MageObject.getDrawableObjects());
         Collections.sort(drawList);
         for (DrawableObject object : drawList) {
-            object.draw(batch, stateTime);
+            object.draw(batch, Game.stateTime);
         }
+    }
+
+    public void removeMeFromScene(DrawableObject object){
+        objects.remove(object);
+    }
+    public void addMeToScene(DrawableObject object){
+        objects.add(object);
     }
 
     public void checkCollisions() {
@@ -192,7 +200,6 @@ public class PHScene {
                     ((FriendObject)first).say();
                     lastClick = null;
                 }
-
             }
 
             for (int j = i; j < drawList.size(); j++) {
@@ -220,11 +227,11 @@ public class PHScene {
 
                     if (first instanceof MageObject && second instanceof CoinObject) {
                         ((CoinObject) second).collected();
-                        objects.remove(second);
+                        removeMeFromScene(second);
                     }
                     if (first instanceof CoinObject && second instanceof MageObject) {
                         ((CoinObject) first).collected();
-                        objects.remove(first);
+                        removeMeFromScene(first);
                     }
 
                 }

@@ -61,7 +61,7 @@ public class MovingObject extends AnimatedObject {
 
     public void stop() {
         destCoord.set(currentCoord);
-        currentAnimation = 1;
+        setIdle();
     }
 
     public void moveToward(Vector2 dest) {
@@ -140,6 +140,6 @@ public class MovingObject extends AnimatedObject {
 
     public MovingObject(String imagePath) {
         super(imagePath);
-        currentAnimation = 1;
+        setRunning();
     }
 }

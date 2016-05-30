@@ -48,7 +48,7 @@ public class Game implements ApplicationListener {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
         stateTime += Gdx.graphics.getDeltaTime();
 
-        DrawController.render(spriteBatch, stateTime);
+        DrawController.render(spriteBatch);
         CameraController.update();
     }
 

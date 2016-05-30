@@ -54,6 +54,22 @@
                     id="oko"
                     x="422"
                     y="70">
+					<statement guy="0">
+						Witaj chuju
+					</statement>
+					
+					<statement guy="1">
+						Ty chuju
+					</statement>
+					
+					
+					<statement guy="0">
+						Ty cipo
+					</statement>
+					
+					<statement guy="0">
+						Ty śmierdząca cipo
+					</statement>
             </friend>
         </scene>
 

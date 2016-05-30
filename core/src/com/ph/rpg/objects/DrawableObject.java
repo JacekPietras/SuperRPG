@@ -44,7 +44,7 @@ public class DrawableObject implements Comparable<DrawableObject> {
         this.currentCoord = currentCoord;
     }
     public DrawableObject(String imagePath) {
-        System.out.println("DrawableObject created: " + imagePath);
+//        System.out.println("DrawableObject created: " + imagePath);
         texture = new Texture(Gdx.files.internal(imagePath));
     }
 

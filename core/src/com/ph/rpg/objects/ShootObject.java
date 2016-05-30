@@ -13,8 +13,9 @@ import java.util.ArrayList;
 public class ShootObject extends MovingObject {
     private float startTime = 0;
     private ArrayList<DrawableObject> shoots;
+    private float damage = 0f;
 
-    public ShootObject(ArrayList<DrawableObject> shoots, Vector2 destination) {
+    public ShootObject(ArrayList<DrawableObject> shoots, Vector2 destination, float damage) {
         super(ClassFileManager.ShootXML);
         setCoord(new Vector2(MovingObject.mainObject.getPosition()));
         currentCoord.add(0, 45);
@@ -22,6 +23,7 @@ public class ShootObject extends MovingObject {
         destination.add(0,-30);
         moveToward(destination);
         speed = 5;
+        this.damage = damage;
 
         setFacingLeft(MovingObject.mainObject.facingLeft);
         this.shoots = shoots;
@@ -34,7 +36,7 @@ public class ShootObject extends MovingObject {
 
         if(stateTime - startTime>50 || isIdle()) {
             shoots.remove(shoots.indexOf(this));
-            ExplosionObject explosion = new ExplosionObject(shoots);
+            ExplosionObject explosion = new ExplosionObject(shoots, damage);
             explosion.setCoord(currentCoord);
             explosion.currentCoord.add(facingLeft?-15:15,0);
             shoots.add(explosion);
@@ -46,7 +48,7 @@ public class ShootObject extends MovingObject {
         return new Vector2(currentCoord.x,currentCoord.y-40);
     }
 
-    public static void shoot(ArrayList<DrawableObject> shoots, Vector2 destination){
-        shoots.add(new ShootObject(shoots, destination));
+    public static void shoot(ArrayList<DrawableObject> shoots, Vector2 destination, float damage){
+        shoots.add(new ShootObject(shoots, destination, damage));
     }
 }

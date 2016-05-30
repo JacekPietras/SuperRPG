@@ -172,7 +172,7 @@ public class PHScene {
                 continue;
 
             if (lastClick != null && first.isColliding(lastClick)) {
-                System.out.print("collision\n");
+//                System.out.print("collision\n");
                 if (first instanceof EnemyObject) {
                     MageObject.mainObject.shoot(new Vector2(lastClick.x, lastClick.y));
                     lastClick = null;
@@ -188,21 +188,19 @@ public class PHScene {
                 //types of collisions
                 if (first.isColliding(second)) {
                     if (first instanceof ExplosionObject && second instanceof EnemyObject) {
-                        ((EnemyObject) second).hit();
-                        MageObject.mainObject.levelUp();
+                        ((EnemyObject) second).hit(((ExplosionObject) first).getDamage());
                         first.width = first.height = 0;
                     }
                     if (first instanceof EnemyObject && second instanceof ExplosionObject) {
-                        ((EnemyObject) first).hit();
-                        MageObject.mainObject.levelUp();
+                        ((EnemyObject) first).hit(((ExplosionObject) second).getDamage());
                         second.width = second.height = 0;
                     }
 
                     if (first instanceof MageObject && second instanceof EnemyObject) {
-                        ((MageObject) first).hit();
+                        ((MageObject) first).hit(((EnemyObject) second).getDamage());
                     }
                     if (first instanceof EnemyObject && second instanceof MageObject) {
-                        ((MageObject) second).hit();
+                        ((MageObject) second).hit(((EnemyObject) first).getDamage());
                     }
 
                     if (first instanceof MageObject && second instanceof GemObject) {

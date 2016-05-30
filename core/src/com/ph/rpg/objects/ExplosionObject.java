@@ -12,15 +12,20 @@ import java.util.ArrayList;
  */
 public class ExplosionObject extends AnimatedObject {
     private float startTime = 0;
+    private float damage = 0f;
     private ArrayList<DrawableObject> shoots;
 
-    public ExplosionObject(ArrayList<DrawableObject> shoots) {
+    public ExplosionObject(ArrayList<DrawableObject> shoots, float damage) {
         super(ClassFileManager.ExplosionXML);
         startTime = Game.stateTime;
         this.shoots = shoots;
+        this.damage = damage;
 
         width = 100;
         height = 100;
+    }
+    public float getDamage(){
+        return damage;
     }
 
     @Override

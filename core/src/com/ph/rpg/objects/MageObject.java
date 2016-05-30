@@ -18,6 +18,25 @@ public class MageObject extends MovingObject {
     private static BloodObject blood = new BloodObject();
     private static ArrayList<DrawableObject> objects = new ArrayList<DrawableObject>();
 
+    private static int experience = 0;
+    private static float damage = 10;
+    private static int level = 1;
+    private static int experienceToNextLevel = 30;
+    private static float life = 100f;
+
+    public static void addExperience(int toAdd) {
+        experience += toAdd;
+        if (experience >= experienceToNextLevel) {
+            experienceToNextLevel *= 5;
+            mainObject.levelUp();
+        }
+        System.out.printf("level "+level+" experience "+experience+"/"+experienceToNextLevel+"\n");
+    }
+
+    public float getDamage(){
+        return damage;
+    }
+
     public static ArrayList<DrawableObject> getDrawableObjects() {
         return objects;
     }
@@ -25,7 +44,6 @@ public class MageObject extends MovingObject {
     public static boolean hasFocus() {
         return hasFocus;
     }
-
 
 
     public MageObject() {
@@ -39,17 +57,26 @@ public class MageObject extends MovingObject {
         height = 50;
     }
 
-    public void hit(){
-        blood.activate();
+    public void hit(float damage) {
+        if(blood.activate()){
+            life -= damage;
+            System.out.printf("life "+life+"\n");
+
+            if(life<=0){
+                System.out.printf("DIED\n");
+            }
+        }
     }
 
-    public void levelUp(){
+    public void levelUp() {
+        level++;
+        damage *= 1.5;
         levelUp.activate();
     }
 
-    public void shoot(Vector2 destination){
-        if(lastShotTime+1> Game.stateTime) return;
+    public void shoot(Vector2 destination) {
+        if (lastShotTime + .5 > Game.stateTime) return;
         lastShotTime = Game.stateTime;
-        ShootObject.shoot(objects, destination);
+        ShootObject.shoot(objects, destination, damage);
     }
 }

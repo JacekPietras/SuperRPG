@@ -31,7 +31,7 @@ public class AnimatedObject extends com.ph.rpg.objects.DrawableObject {
     public AnimatedObject(String xmlPath) {
         try {
             XmlReader reader = new XmlReader();
-            System.out.println("AnimatedObject created: " + xmlPath);
+//            System.out.println("AnimatedObject created: " + xmlPath);
             XmlReader.Element root = reader.parse(Gdx.files.internal(xmlPath));
 
             //Animations

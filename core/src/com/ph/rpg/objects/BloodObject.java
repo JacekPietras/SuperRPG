@@ -26,11 +26,12 @@ public class BloodObject extends AnimatedObject {
         }
     }
 
-    public void activate(){
-        if(startTime+1>Game.stateTime) return;
+    public boolean activate(){
+        if(startTime+1>Game.stateTime) return false;
         startTime = Game.stateTime;
         active = true;
         setCoord(new Vector2(MovingObject.mainObject.getPosition()));
         currentCoord.add(-20,-150);
+        return true;
     }
 }

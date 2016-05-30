@@ -19,7 +19,7 @@ public class MageObject extends MovingObject {
     private static ArrayList<DrawableObject> objects = new ArrayList<DrawableObject>();
 
     private static int experience = 0;
-    private static float damage = 10;
+    private static float damage = 20;
     private static int level = 1;
     private static int experienceToNextLevel = 30;
     private static float life = 100f;
@@ -54,7 +54,7 @@ public class MageObject extends MovingObject {
         objects.add(this);
         setAsMainObject();
         width = 40;
-        height = 50;
+        height = 90;
     }
 
     public void hit(float damage) {

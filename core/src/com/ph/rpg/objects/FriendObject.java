@@ -19,11 +19,21 @@ public class FriendObject extends MovingObject {
     private float endDiscusionTime = 0;
     private boolean endDiscusion = false;
 
+    private TipObject tip;
+
+
+    public boolean isColliding(int x, int y){
+        if(!endDiscusion)
+            return true;
+        return getRectangle().contains(x,y);
+    }
+
+
     public FriendObject(XmlReader.Element friend) {
         super(ClassFileManager.friendXML);
         speed = 4;
-        width = 100;
-        height = 150;
+        width = 30;
+        height = 50;
         setCoord(new Vector2(300, -20));
         Array<XmlReader.Element> list = friend.getChildrenByName("statement");
         statementList = new ArrayList<Statement>();
@@ -38,16 +48,30 @@ public class FriendObject extends MovingObject {
 
 
     public void say() {
+        if(tip == null){
+            tip = new TipObject();
+            SceneManager.getCurrentScene().addMeToScene(tip);
+        }
+
         if (!statementList.isEmpty()) {
-            if (statementList.get(0).guy == 0)
+            if (statementList.get(0).guy == 0) {
                 System.out.printf("Oko : ");
-            else
+                Vector2 tipCord = new Vector2(currentCoord);
+                tipCord.add(0,height);
+                tip.setCoord(tipCord);
+            }else {
                 System.out.printf("Mag : ");
+                Vector2 tipCord = new Vector2(MageObject.mainObject.currentCoord);
+                tipCord.add(0,MageObject.mainObject.height);
+                tip.setCoord(tipCord);
+            }
             System.out.printf(statementList.get(0).statement + "\n");
             statementList.remove(0);
         } else {
             endDiscusionTime = Game.stateTime;
             endDiscusion = true;
+            SceneManager.getCurrentScene().removeMeFromScene(tip);
+            tip = null;
             moveToward(new Vector2(Game.WIDTH + 100, 180));
         }
     }

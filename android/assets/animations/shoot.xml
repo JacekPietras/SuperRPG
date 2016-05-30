@@ -5,14 +5,14 @@
                 sprite="animations/shoot.png"
                 frameCols="8"
                 frameRows="8"
-                time="50">
+                time="100">
         </animation>
         <animation
                 name="SHOOT"
                 sprite="animations/shoot.png"
                 frameCols="8"
                 frameRows="8"
-                time="50">
+                time="100">
         </animation>
     </animations>
 </class>

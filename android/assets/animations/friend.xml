@@ -5,14 +5,14 @@
                 sprite="animations/friend_move.png"
                 frameCols="6"
                 frameRows="1"
-                time="100">
+                time="50">
         </animation>
         <animation
                 name="IDLE"
                 sprite="animations/friend_idle.png"
                 frameCols="5"
                 frameRows="2"
-                time="200">
+                time="100">
         </animation>
     </animations>
 </class>

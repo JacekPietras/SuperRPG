@@ -50,6 +50,11 @@
                         color="00ff00ff"
                         id="3">
                 </gate>
+            <friend
+                    id="oko"
+                    x="422"
+                    y="70">
+            </friend>
         </scene>
 
         <scene

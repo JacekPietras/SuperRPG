@@ -11,10 +11,16 @@ import java.util.ArrayList;
  * Created by Jock on 23.05.2016.
  */
 public class FriendObject extends MovingObject {
-
-    public FriendObject(Vector2 destination) {
+    public FriendObject() {
         super(ClassFileManager.friendXML);
-        setCoord(new Vector2(Game.WIDTH+100, Game.HEIGHT/2));
-        moveToward(destination);
+        speed = 4;
+        width = 100;
+        height = 150;
+        setCoord(new Vector2(300, -20));
+    }
+
+
+    public void say() {
+        System.out.printf("Hejo\n");
     }
 }

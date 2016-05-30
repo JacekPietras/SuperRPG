@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
 import com.ph.rpg.objects.CoinObject;
 import com.ph.rpg.objects.ExplosionObject;
+import com.ph.rpg.objects.FriendObject;
 import com.ph.rpg.objects.MageObject;
 import com.ph.rpg.objects.DrawableObject;
 import com.ph.rpg.objects.EnemyObject;
@@ -51,6 +52,7 @@ public class PHScene {
 
         getObjects(child);
         getEnemies(child);
+        getFriends(child);
         getGates(child);
         getStartingPoints(child);
     }
@@ -79,6 +81,15 @@ public class PHScene {
             Integer id = Integer.parseInt(enemy.get("id"));
             Color color = Color.valueOf(enemy.get("color"));
             gates.put(id, new PHGate(id, color));
+        }
+    }
+
+    private void getFriends(XmlReader.Element _child) {
+        Array<XmlReader.Element> list = _child.getChildrenByName("friend");
+        for (XmlReader.Element friend : list) {
+            FriendObject thing = new FriendObject();
+            thing.moveToward(new Vector2(Integer.parseInt(friend.get("x")), Integer.parseInt(friend.get("y"))));
+            objects.add(thing);
         }
     }
 
@@ -176,6 +187,9 @@ public class PHScene {
 //                System.out.print("collision\n");
                 if (first instanceof EnemyObject) {
                     MageObject.mainObject.shoot(new Vector2(lastClick.x, lastClick.y));
+                    lastClick = null;
+                }else if (first instanceof FriendObject) {
+                    ((FriendObject)first).say();
                     lastClick = null;
                 }
 

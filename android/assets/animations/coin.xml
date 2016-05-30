@@ -1,0 +1,11 @@
+<class>
+    <animations>
+        <animation
+                name="COIN"
+                sprite="animations/coin.png"
+                frameCols="8"
+                frameRows="1"
+                time="100">
+        </animation>
+    </animations>
+</class>

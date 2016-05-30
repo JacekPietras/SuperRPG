@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
+import com.ph.rpg.objects.CoinObject;
 import com.ph.rpg.objects.ExplosionObject;
 import com.ph.rpg.objects.MageObject;
 import com.ph.rpg.objects.DrawableObject;
@@ -84,7 +85,7 @@ public class PHScene {
     private void getEnemies(XmlReader.Element _child) {
         Array<XmlReader.Element> list = _child.getChildrenByName("enemy");
         for (XmlReader.Element enemy : list) {
-            EnemyObject thing = new EnemyObject();
+            EnemyObject thing = new EnemyObject(objects);
             thing.setCoord(new Vector2(Integer.parseInt(enemy.get("x")), Integer.parseInt(enemy.get("y"))));
             objects.add(thing);
         }
@@ -203,12 +204,12 @@ public class PHScene {
                         ((MageObject) second).hit(((EnemyObject) first).getDamage());
                     }
 
-                    if (first instanceof MageObject && second instanceof GemObject) {
-                        ((GemObject) second).collected();
+                    if (first instanceof MageObject && second instanceof CoinObject) {
+                        ((CoinObject) second).collected();
                         objects.remove(second);
                     }
-                    if (first instanceof GemObject && second instanceof MageObject) {
-                        ((GemObject) first).collected();
+                    if (first instanceof CoinObject && second instanceof MageObject) {
+                        ((CoinObject) first).collected();
                         objects.remove(first);
                     }
 

@@ -1,0 +1,11 @@
+<class>
+    <animations>
+        <animation
+                name="BAG_OF_GEMS"
+                sprite="animations/bag_of_gems.png"
+                frameCols="9"
+                frameRows="2"
+                time="200">
+        </animation>
+    </animations>
+</class>

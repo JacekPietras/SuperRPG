@@ -1,0 +1,18 @@
+<class>
+    <animations>
+        <animation
+                name="RUN"
+                sprite="animations/friend_move.png"
+                frameCols="6"
+                frameRows="1"
+                time="100">
+        </animation>
+        <animation
+                name="IDLE"
+                sprite="animations/friend_idle.png"
+                frameCols="5"
+                frameRows="2"
+                time="200">
+        </animation>
+    </animations>
+</class>

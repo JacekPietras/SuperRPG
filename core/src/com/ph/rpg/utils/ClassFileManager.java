@@ -10,5 +10,7 @@ public class ClassFileManager {
     public static final String BloodXML = "animations/blood.xml";
     public static final String ShootXML = "animations/shoot.xml";
     public static final String enemyXML = "objects/wolf.png";
-    public static final String gemsXML = "objects/bag_of_gems.png";
+    public static final String gemsXML = "animations/bag_of_gems.xml";
+    public static final String coinXML = "animations/coin.xml";
+    public static final String friendXML = "animations/friend.xml";
 }

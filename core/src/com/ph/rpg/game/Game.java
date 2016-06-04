@@ -3,7 +3,11 @@ package com.ph.rpg.game;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.ph.rpg.controllers.CameraController;
 import com.ph.rpg.controllers.DrawController;
 import com.ph.rpg.objects.MageObject;
@@ -19,6 +23,8 @@ public class Game implements ApplicationListener {
     public static float stateTime = 0f;
 
     SpriteBatch spriteBatch;
+    public static Texture fontTexture;
+    public static ShaderProgram fontShader;
 
     @Override
     public void create() {
@@ -32,6 +38,9 @@ public class Game implements ApplicationListener {
         new MageObject();
 
         SceneManager.goToScene(1);
+
+
+
     }
 
     @Override
@@ -49,6 +58,14 @@ public class Game implements ApplicationListener {
         stateTime += Gdx.graphics.getDeltaTime();
 
         DrawController.render(spriteBatch);
+
+        fontTexture = new Texture(Gdx.files.internal("arial.png"));
+        fontTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        fontShader = new ShaderProgram(Gdx.files.internal("arial.vert"), Gdx.files.internal("arial.frag"));
+        if (!fontShader.isCompiled()) {
+            Gdx.app.error("fontShader", "compilation failed:\n" + fontShader.getLog());
+        }
+
         CameraController.update();
     }
 

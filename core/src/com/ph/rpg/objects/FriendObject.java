@@ -66,6 +66,7 @@ public class FriendObject extends MovingObject {
                 tip.setCoord(tipCord);
             }
             System.out.printf(statementList.get(0).statement + "\n");
+            tip.setStatement(statementList.get(0).statement + "\n");
             statementList.remove(0);
         } else {
             endDiscusionTime = Game.stateTime;

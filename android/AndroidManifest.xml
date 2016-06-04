@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.ph.rpg.game"
     android:versionCode="1"
     android:versionName="1.0" >
@@ -10,6 +11,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
+        android:name="android.support.multidex.MultiDexApplication"
         android:theme="@style/GdxTheme" >
         <activity
             android:name="com.ph.rpg.game.AndroidLauncher"

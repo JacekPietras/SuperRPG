@@ -3,7 +3,10 @@ package com.ph.rpg.scene;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
@@ -15,12 +18,12 @@ import com.ph.rpg.objects.MageObject;
 import com.ph.rpg.objects.DrawableObject;
 import com.ph.rpg.objects.EnemyObject;
 import com.ph.rpg.objects.GemObject;
+import com.sun.javafx.geom.Vec4f;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
 /**
  * Hamish
  * 2016-05-21.
@@ -40,6 +43,7 @@ public class PHScene {
     ArrayList<DrawableObject> objects = new ArrayList<DrawableObject>();
     Map<Integer, PHGate> gates = new HashMap();
     Map<Integer, PHStartingPoint> startingPoints = new HashMap();
+    private Texture texture;
 
     public PHScene(XmlReader.Element child) {
         id = Integer.parseInt(child.get("id"));
@@ -182,6 +186,15 @@ public class PHScene {
         objects.add(object);
     }
 
+//    public void drawTexts(SpriteBatch batch) {
+//        BitmapFont font = new BitmapFont(Gdx.files.internal("arial.fnt"), new TextureRegion(texture), false);
+//        batch.setShader(fontShader);
+//        font.setColor(Color.BLACK);
+//        font.getData().setScale(0.5f);
+//        font.draw(batch, "Hello smooth world! LOOLO GLGO LOG L O GL OG G", 10, 300,  200, 1, true);
+//        batch.setShader(null);
+//
+//    }
     public void checkCollisions() {
         ArrayList<DrawableObject> drawList = new ArrayList<DrawableObject>();
         drawList.addAll(objects);

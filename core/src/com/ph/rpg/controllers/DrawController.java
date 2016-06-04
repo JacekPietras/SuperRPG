@@ -1,6 +1,10 @@
 package com.ph.rpg.controllers;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ph.rpg.scene.SceneManager;
 
 /**
@@ -12,6 +16,11 @@ public class DrawController {
         spriteBatch.draw(SceneManager.getCurrentScene().getScene(), 0, 0);
         SceneManager.getCurrentScene().drawObjects(spriteBatch);
         SceneManager.getCurrentScene().checkCollisions();
+//        SceneManager.getCurrentScene().drawTexts(spriteBatch);
+
+
+
+
         spriteBatch.end();
         HUDController.render();
     }

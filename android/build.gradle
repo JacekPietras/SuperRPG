@@ -16,8 +16,13 @@ android {
     }
     defaultConfig {
         applicationId "com.ph.rpg.game"
+        multiDexEnabled = true
         minSdkVersion 8
         targetSdkVersion 23
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
     }
 }
 

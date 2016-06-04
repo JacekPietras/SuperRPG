@@ -57,9 +57,9 @@ public class HUDController {
         BitmapFont font = new BitmapFont(Gdx.files.internal("arial.fnt"), new TextureRegion(Game.fontTexture), false);
         HUDBatch.setShader(Game.fontShader);
         font.setColor(Color.WHITE);
-        font.getData().setScale(0.5f);
+        font.getData().setScale(0.4f);
         glyphLayout.setText(font, ((MageObject)MageObject.mainObject).getLevel()+"", Color.WHITE, 50, Align.center, true);
-        font.draw(HUDBatch, glyphLayout, 189, Game.HEIGHT-61);
+        font.draw(HUDBatch, glyphLayout, 190, Game.HEIGHT-61);
         HUDBatch.setShader(null);
 
 

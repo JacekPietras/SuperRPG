@@ -3,10 +3,10 @@ package com.ph.rpg.objects;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 
-import java.awt.Rectangle;
 
 
 /**
@@ -33,7 +33,7 @@ public class DrawableObject implements Comparable<DrawableObject> {
     }
 
     public boolean isColliding(Rectangle collider){
-        return !getRectangle().intersection(collider).isEmpty();
+        return getRectangle().overlaps(collider);
     }
 
     public boolean isColliding(DrawableObject collider){

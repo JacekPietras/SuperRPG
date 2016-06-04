@@ -28,6 +28,7 @@ public class Game implements ApplicationListener {
     public static ShaderProgram fontShader;
     private static Sound explosion;
     private static Sound coin;
+    private static Sound punch;
 
     public static void explosion(){
         explosion.play(0.3f);
@@ -35,6 +36,10 @@ public class Game implements ApplicationListener {
 
     public static void coin(){
         coin.play(0.3f);
+    }
+
+    public static void punch(){
+        punch.play(0.6f);
     }
 
     @Override
@@ -53,6 +58,7 @@ public class Game implements ApplicationListener {
 
         explosion = Gdx.audio.newSound(Gdx.files.internal("explosion.mp3"));
          coin = Gdx.audio.newSound(Gdx.files.internal("coin.mp3"));
+        punch = Gdx.audio.newSound(Gdx.files.internal("punch.mp3"));
         Sound sound = Gdx.audio.newSound(Gdx.files.internal("dawna.mp3"));
         long  id = sound.play(0.5f);
         sound.setLooping(id, true);

@@ -76,6 +76,7 @@ public class MageObject extends MovingObject {
 
     public void hit(float damage) {
         if(blood.activate()){
+            Game.punch();
             life -= damage;
             System.out.printf("life "+life+"\n");
 

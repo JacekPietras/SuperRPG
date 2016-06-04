@@ -22,6 +22,23 @@ public class MageObject extends MovingObject {
     private static float damage = 20;
     private static int level = 1;
     private static int experienceToNextLevel = 30;
+
+    public static float getLife() {
+        return life;
+    }
+
+    public static int getExperienceToNextLevel() {
+        return experienceToNextLevel;
+    }
+
+    public static int getLevel() {
+        return level;
+    }
+
+    public static int getExperience() {
+        return experience;
+    }
+
     private static float life = 100f;
 
     public static void addExperience(int toAdd) {

@@ -35,8 +35,6 @@ public class TipObject extends DrawableObject {
     public void draw(SpriteBatch batch, float stateTime) {
         super.draw(batch, stateTime);
         GlyphLayout glyphLayout = new GlyphLayout();
-
-
         BitmapFont font = new BitmapFont(Gdx.files.internal("arial.fnt"), new TextureRegion(Game.fontTexture), false);
         batch.setShader(Game.fontShader);
         font.setColor(Color.BLACK);

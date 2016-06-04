@@ -50,6 +50,12 @@ public class Game implements ApplicationListener {
 
     @Override
     public void render() {
+        fontTexture = new Texture(Gdx.files.internal("arial.png"));
+        fontTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        fontShader = new ShaderProgram(Gdx.files.internal("arial.vert"), Gdx.files.internal("arial.frag"));
+        if (!fontShader.isCompiled()) {
+            Gdx.app.error("fontShader", "compilation failed:\n" + fontShader.getLog());
+        }
 
         GameKeys.update();
         CameraController.update();
@@ -59,12 +65,6 @@ public class Game implements ApplicationListener {
 
         DrawController.render(spriteBatch);
 
-        fontTexture = new Texture(Gdx.files.internal("arial.png"));
-        fontTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-        fontShader = new ShaderProgram(Gdx.files.internal("arial.vert"), Gdx.files.internal("arial.frag"));
-        if (!fontShader.isCompiled()) {
-            Gdx.app.error("fontShader", "compilation failed:\n" + fontShader.getLog());
-        }
 
         CameraController.update();
     }

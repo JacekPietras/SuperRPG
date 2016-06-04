@@ -50,6 +50,7 @@ public class AnimatedObject extends com.ph.rpg.objects.DrawableObject {
 
     @Override
     public void draw(SpriteBatch batch, float stateTime) {
+        if(animations.size()<= currentAnimation) return;
         TextureRegion currentFrame = animations.get(currentAnimation).getAnimation().getKeyFrame(stateTime, true);
         float zoom = SceneManager.getCurrentScene().getZoom();
 

@@ -14,5 +14,12 @@
                 frameRows="1"
                 time="200">
         </animation>
+        <animation
+                name="DEAD"
+                sprite="animations/mage_dead.png"
+                frameCols="7"
+                frameRows="1"
+                time="100">
+        </animation>
     </animations>
 </class>

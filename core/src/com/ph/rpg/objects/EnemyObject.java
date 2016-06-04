@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class EnemyObject extends DrawableObject {
     private int experience = 10;
-    private float damage = 10f;
+    private float damage = 50f;
     private float life = 100f;
 
 

@@ -61,6 +61,7 @@ public class MovingObject extends AnimatedObject {
 
     public void stop() {
         destCoord.set(currentCoord);
+        if(isRunning())
         setIdle();
     }
 
@@ -132,7 +133,7 @@ public class MovingObject extends AnimatedObject {
             }
 
             currentCoord.set(nextPosition);
-            if (nextPosition.epsilonEquals(destCoord, 1.0f))
+            if (nextPosition.epsilonEquals(destCoord, 1.0f) && isRunning())
                 setIdle();
             return nextPosition;
         }

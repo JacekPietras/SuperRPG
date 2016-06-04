@@ -1,0 +1,11 @@
+<class>
+    <animations>
+        <animation
+                name="DEAD"
+                sprite="animations/dead.png"
+                frameCols="8"
+                frameRows="7"
+                time="200">
+        </animation>
+    </animations>
+</class>

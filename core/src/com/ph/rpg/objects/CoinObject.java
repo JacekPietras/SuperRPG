@@ -1,5 +1,6 @@
 package com.ph.rpg.objects;
 
+import com.ph.rpg.game.Game;
 import com.ph.rpg.utils.ClassFileManager;
 
 /**
@@ -21,6 +22,7 @@ public class CoinObject extends AnimatedObject {
     }
 
     public void collected() {
+        Game.coin();
         MageObject.mainObject.addExperience(value);
 //        System.out.printf("Collected! ("+value+")\n");
     }

@@ -21,6 +21,8 @@ public class ExplosionObject extends AnimatedObject {
         this.shoots = shoots;
         this.damage = damage;
 
+        Game.explosion();
+
         width = 100;
         height = 100;
     }

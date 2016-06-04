@@ -2,6 +2,7 @@ package com.ph.rpg.game;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -25,6 +26,16 @@ public class Game implements ApplicationListener {
     SpriteBatch spriteBatch;
     public static Texture fontTexture;
     public static ShaderProgram fontShader;
+    private static Sound explosion;
+    private static Sound coin;
+
+    public static void explosion(){
+        explosion.play(0.3f);
+    }
+
+    public static void coin(){
+        coin.play(0.3f);
+    }
 
     @Override
     public void create() {
@@ -40,7 +51,11 @@ public class Game implements ApplicationListener {
         SceneManager.goToScene(1);
 
 
-
+        explosion = Gdx.audio.newSound(Gdx.files.internal("explosion.mp3"));
+         coin = Gdx.audio.newSound(Gdx.files.internal("coin.mp3"));
+        Sound sound = Gdx.audio.newSound(Gdx.files.internal("dawna.mp3"));
+        long  id = sound.play(0.5f);
+        sound.setLooping(id, true);
     }
 
     @Override

@@ -10,6 +10,7 @@ import java.util.Random;
 /**
  * Created by Jock on 23.05.2016.
  */
+@Deprecated
 public class EnemyObject extends DrawableObject {
     private int experience = 10;
     private float damage = 50f;

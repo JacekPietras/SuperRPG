@@ -1,0 +1,32 @@
+<class>
+    <animations>
+        <animation
+                name="RUN"
+                sprite="animations/skorpion_run.png"
+                frameCols="6"
+                frameRows="1"
+                time="100">
+        </animation>
+        <animation
+                name="IDLE"
+                sprite="animations/skorpion_idle.png"
+                frameCols="6"
+                frameRows="1"
+                time="100">
+        </animation>
+        <animation
+                name="DEAD"
+                sprite="animations/skorpion_death.png"
+                frameCols="4"
+                frameRows="4"
+                time="100">
+        </animation>
+        <animation
+                name="ATTACK"
+                sprite="animations/skorpion_attack.png"
+                frameCols="4"
+                frameRows="2"
+                time="100">
+        </animation>
+    </animations>
+</class>

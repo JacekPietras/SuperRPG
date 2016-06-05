@@ -12,8 +12,10 @@ import com.ph.rpg.scene.SceneManager;
  */
 public class MovingObject extends AnimatedObject {
     private static final int BASIC_SPEED = 3;
-    protected int speed = BASIC_SPEED;
+    protected float speed = BASIC_SPEED;
     protected Vector2 destCoord = new Vector2();
+
+    public boolean facingSwitch = false;
 
     public static MageObject mainObject;
 
@@ -80,6 +82,9 @@ public class MovingObject extends AnimatedObject {
         } else if (currentCoord.x < getDestination().x && facingLeft) {
             facingLeft = false;
         }
+
+        if(facingSwitch && isRunning())
+            facingLeft = !facingLeft;
 //        levelUp.draw(spriteBatch,stateTime);
 //        blood.draw(spriteBatch,stateTime);
 

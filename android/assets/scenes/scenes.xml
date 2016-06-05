@@ -104,11 +104,11 @@
                     x="200"
                     y="100">
             </object>
-            <enemy
+            <skorpion
                     id="wolf1"
                     x="522"
                     y="70">
-            </enemy>
+            </skorpion>
         </scene>
 
         <scene
@@ -155,6 +155,11 @@
                         color="ff0000ff"
                         id="4">
                 </gate>
+            <skorpionbig
+                    id="wolf2"
+                    x="522"
+                    y="70">
+            </skorpionbig>
         </scene>
     </scenes>
 </root>

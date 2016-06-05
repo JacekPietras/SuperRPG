@@ -15,4 +15,6 @@ public class ClassFileManager {
     public static final String gemsXML = "animations/bag_of_gems.xml";
     public static final String coinXML = "animations/coin.xml";
     public static final String friendXML = "animations/friend.xml";
+    public static final String skorpionXML = "animations/skorpion.xml";
+    public static final String skorpionbigXML = "animations/skorpionbig.xml";
 }

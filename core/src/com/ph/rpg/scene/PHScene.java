@@ -16,8 +16,9 @@ import com.ph.rpg.objects.ExplosionObject;
 import com.ph.rpg.objects.FriendObject;
 import com.ph.rpg.objects.MageObject;
 import com.ph.rpg.objects.DrawableObject;
-import com.ph.rpg.objects.EnemyObject;
 import com.ph.rpg.objects.GemObject;
+import com.ph.rpg.objects.SkorpionBigObject;
+import com.ph.rpg.objects.SkorpionObject;
 import com.sun.javafx.geom.Vec4f;
 
 import java.util.ArrayList;
@@ -56,7 +57,8 @@ public class PHScene {
         mask = new Texture(Gdx.files.internal(pathMask));
 
         getObjects(child);
-        getEnemies(child);
+        getScorpions(child);
+        getBigScorpions(child);
         getFriends(child);
         getGates(child);
         getStartingPoints(child);
@@ -98,10 +100,19 @@ public class PHScene {
         }
     }
 
-    private void getEnemies(XmlReader.Element _child) {
-        Array<XmlReader.Element> list = _child.getChildrenByName("enemy");
+    private void getScorpions(XmlReader.Element _child) {
+        Array<XmlReader.Element> list = _child.getChildrenByName("skorpion");
         for (XmlReader.Element enemy : list) {
-            EnemyObject thing = new EnemyObject();
+            SkorpionObject thing = new SkorpionObject();
+            thing.setCoord(new Vector2(Integer.parseInt(enemy.get("x")), Integer.parseInt(enemy.get("y"))));
+            objects.add(thing);
+        }
+    }
+
+    private void getBigScorpions(XmlReader.Element _child) {
+        Array<XmlReader.Element> list = _child.getChildrenByName("skorpionbig");
+        for (XmlReader.Element enemy : list) {
+            SkorpionBigObject thing = new SkorpionBigObject();
             thing.setCoord(new Vector2(Integer.parseInt(enemy.get("x")), Integer.parseInt(enemy.get("y"))));
             objects.add(thing);
         }
@@ -206,7 +217,7 @@ public class PHScene {
 
             if (lastClick != null && first.isColliding(lastClick)) {
 //                System.out.print("collision\n");
-                if (first instanceof EnemyObject) {
+                if (first instanceof SkorpionObject) {
                     MageObject.mainObject.shoot(new Vector2(lastClick.x, lastClick.y));
                     lastClick = null;
                 }else if (first instanceof FriendObject) {
@@ -222,20 +233,20 @@ public class PHScene {
 
                 //types of collisions
                 if (first.isColliding(second)) {
-                    if (first instanceof ExplosionObject && second instanceof EnemyObject) {
-                        ((EnemyObject) second).hit(((ExplosionObject) first).getDamage());
+                    if (first instanceof ExplosionObject && second instanceof SkorpionObject) {
+                        ((SkorpionObject) second).hit(((ExplosionObject) first).getDamage());
                         first.width = first.height = 0;
                     }
-                    if (first instanceof EnemyObject && second instanceof ExplosionObject) {
-                        ((EnemyObject) first).hit(((ExplosionObject) second).getDamage());
+                    if (first instanceof SkorpionObject && second instanceof ExplosionObject) {
+                        ((SkorpionObject) first).hit(((ExplosionObject) second).getDamage());
                         second.width = second.height = 0;
                     }
 
-                    if (first instanceof MageObject && second instanceof EnemyObject) {
-                        ((MageObject) first).hit(((EnemyObject) second).getDamage());
+                    if (first instanceof MageObject && second instanceof SkorpionObject) {
+                        ((MageObject) first).hit(((SkorpionObject) second).getDamage());
                     }
-                    if (first instanceof EnemyObject && second instanceof MageObject) {
-                        ((MageObject) second).hit(((EnemyObject) first).getDamage());
+                    if (first instanceof SkorpionObject && second instanceof MageObject) {
+                        ((MageObject) second).hit(((SkorpionObject) first).getDamage());
                     }
 
                     if (first instanceof MageObject && second instanceof CoinObject) {
